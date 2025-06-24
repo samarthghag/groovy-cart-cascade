@@ -1,5 +1,5 @@
 
-import { Product } from "../pages/Index";
+import { Product } from "../hooks/useProducts";
 import { ProductCard } from "./ProductCard";
 
 interface ProductGridProps {
