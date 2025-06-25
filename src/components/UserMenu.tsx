@@ -12,9 +12,11 @@ import {
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { User, LogOut, ShoppingBag, Settings } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 export const UserMenu = () => {
   const { user, signOut } = useAuth();
+  const navigate = useNavigate();
 
   if (!user) return null;
 
@@ -41,11 +43,11 @@ export const UserMenu = () => {
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
+        <DropdownMenuItem onClick={() => navigate('/profile')}>
           <User className="mr-2 h-4 w-4" />
           <span>Profile</span>
         </DropdownMenuItem>
-        <DropdownMenuItem>
+        <DropdownMenuItem onClick={() => navigate('/profile')}>
           <ShoppingBag className="mr-2 h-4 w-4" />
           <span>My Orders</span>
         </DropdownMenuItem>

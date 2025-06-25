@@ -1,6 +1,8 @@
 
-import { Product } from "../hooks/useProducts";
+import { useEffect, useRef } from "react";
 import { ProductCard } from "./ProductCard";
+import { Product } from "../hooks/useProducts";
+import { useGSAPAnimations } from "../hooks/useGSAPAnimations";
 
 interface ProductGridProps {
   products: Product[];
@@ -8,9 +10,19 @@ interface ProductGridProps {
 }
 
 export const ProductGrid = ({ products, onAddToCart }: ProductGridProps) => {
+  const gridRef = useRef<HTMLDivElement>(null);
+  const { animateStagger } = useGSAPAnimations();
+
+  useEffect(() => {
+    if (gridRef.current) {
+      const cards = gridRef.current.querySelectorAll('.product-card');
+      animateStagger(Array.from(cards) as HTMLElement[], 0.1);
+    }
+  }, [products]);
+
   if (products.length === 0) {
     return (
-      <div className="text-center py-16">
+      <div className="text-center py-12">
         <div className="w-24 h-24 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
           <span className="text-3xl">🔍</span>
         </div>
@@ -21,25 +33,15 @@ export const ProductGrid = ({ products, onAddToCart }: ProductGridProps) => {
   }
 
   return (
-    <section>
-      <div className="flex items-center justify-between mb-8">
-        <h2 className="text-3xl font-bold text-gray-900">
-          Featured Products
-        </h2>
-        <p className="text-gray-600">
-          {products.length} {products.length === 1 ? 'product' : 'products'} found
-        </p>
-      </div>
-      
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {products.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            onAddToCart={onAddToCart}
-          />
-        ))}
-      </div>
-    </section>
+    <div 
+      ref={gridRef}
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+    >
+      {products.map((product) => (
+        <div key={product.id} className="product-card">
+          <ProductCard product={product} onAddToCart={onAddToCart} />
+        </div>
+      ))}
+    </div>
   );
 };

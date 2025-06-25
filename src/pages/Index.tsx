@@ -1,15 +1,17 @@
-
 import { useState, useEffect } from "react";
 import { Header } from "../components/Header";
 import { ProductGrid } from "../components/ProductGrid";
 import { Cart } from "../components/Cart";
 import { Hero } from "../components/Hero";
 import { Footer } from "../components/Footer";
+import { AnimatedPage } from "../components/AnimatedPage";
 import { useProducts } from "../hooks/useProducts";
 import { useCart } from "../hooks/useCart";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Index = () => {
   const { products, loading, error } = useProducts();
+  const { user } = useAuth();
   const {
     cartItems,
     addToCart,
@@ -17,6 +19,7 @@ const Index = () => {
     removeFromCart,
     getTotalItems,
     getTotalPrice,
+    syncGuestCartToUser,
   } = useCart();
 
   const [filteredProducts, setFilteredProducts] = useState(products);
@@ -25,6 +28,13 @@ const Index = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const categories = ["All", ...Array.from(new Set(products.map(p => p.category)))];
+
+  // Sync guest cart when user logs in
+  useEffect(() => {
+    if (user) {
+      syncGuestCartToUser();
+    }
+  }, [user]);
 
   useEffect(() => {
     let filtered = products;
@@ -69,7 +79,7 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <AnimatedPage className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <Header
         cartItemCount={getTotalItems()}
         onCartClick={() => setIsCartOpen(true)}
@@ -99,7 +109,7 @@ const Index = () => {
         onRemoveItem={removeFromCart}
         totalPrice={getTotalPrice()}
       />
-    </div>
+    </AnimatedPage>
   );
 };
 

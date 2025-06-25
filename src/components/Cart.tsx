@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
 import { CartItem } from "../hooks/useCart";
+import { useNavigate } from "react-router-dom";
 
 interface CartProps {
   isOpen: boolean;
@@ -23,7 +24,13 @@ export const Cart = ({
   onRemoveItem,
   totalPrice,
 }: CartProps) => {
+  const navigate = useNavigate();
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
+
+  const handleCheckout = () => {
+    onClose();
+    navigate('/checkout');
+  };
 
   return (
     <Sheet open={isOpen} onOpenChange={onClose}>
@@ -120,7 +127,10 @@ export const Cart = ({
                 </div>
                 <Separator />
                 <div className="space-y-2">
-                  <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300">
+                  <Button 
+                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
+                    onClick={handleCheckout}
+                  >
                     <CreditCard className="h-4 w-4 mr-2" />
                     Proceed to Checkout
                   </Button>
