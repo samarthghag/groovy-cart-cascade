@@ -1,0 +1,27 @@
+
+-- Add more products with Indian Rupee pricing
+INSERT INTO public.products (name, description, price, category, image, rating, stock) VALUES
+('Samsung Galaxy S24', 'Latest flagship smartphone with AI features', 79999.00, 'Electronics', 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop', 4.6, 12),
+('MacBook Air M3', 'Ultra-thin laptop with M3 chip', 114900.00, 'Electronics', 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop', 4.8, 5),
+('Sony WH-1000XM5', 'Industry-leading noise canceling headphones', 29990.00, 'Electronics', 'https://images.unsplash.com/photo-1545127398-14699f92334b?w=400&h=400&fit=crop', 4.7, 18),
+('Canon EOS R50', 'Mirrorless camera for content creators', 54990.00, 'Electronics', 'https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=400&h=400&fit=crop', 4.5, 8),
+('Nike Air Max 270', 'Comfortable running shoes with air cushioning', 12995.00, 'Fashion', 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop', 4.4, 25),
+('Levi''s 501 Original Jeans', 'Classic straight-fit denim jeans', 4499.00, 'Fashion', 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400&h=400&fit=crop', 4.3, 35),
+('Ray-Ban Aviator Sunglasses', 'Classic aviator style sunglasses', 8990.00, 'Fashion', 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&h=400&fit=crop', 4.6, 20),
+('Adidas Ultraboost 22', 'High-performance running shoes', 16999.00, 'Fashion', 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop', 4.5, 15),
+('IKEA MARKUS Chair', 'Ergonomic office chair with high back', 14999.00, 'Furniture', 'https://images.unsplash.com/photo-1581539250439-c96689b516dd?w=400&h=400&fit=crop', 4.2, 10),
+('Wooden Study Table', 'Solid wood study table with drawers', 12999.00, 'Furniture', 'https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=400&fit=crop', 4.4, 6),
+('IKEA BILLY Bookshelf', 'Adjustable shelving unit', 3999.00, 'Furniture', 'https://images.unsplash.com/photo-1594736797933-d0dcced7bb5e?w=400&h=400&fit=crop', 4.1, 22),
+('Sofa Set 3+2', 'Comfortable fabric sofa set', 45999.00, 'Furniture', 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=400&fit=crop', 4.3, 4),
+('Himalaya Face Wash', 'Natural face wash with neem and turmeric', 125.00, 'Beauty', 'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=400&h=400&fit=crop', 4.2, 100),
+('Lakme Lipstick Set', 'Set of 5 matte lipsticks in different shades', 1299.00, 'Beauty', 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop', 4.0, 45),
+('Olay Moisturizer', 'Anti-aging night cream with retinol', 899.00, 'Beauty', 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop', 4.3, 60),
+('L''Oreal Shampoo', 'Sulfate-free shampoo for damaged hair', 499.00, 'Beauty', 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&h=400&fit=crop', 4.1, 80),
+('Tata Tea Premium', 'Premium black tea blend 1kg pack', 450.00, 'Food', 'https://images.unsplash.com/photo-1594631661960-69a29c071d72?w=400&h=400&fit=crop', 4.4, 150),
+('Basmati Rice 5kg', 'Premium aged basmati rice', 799.00, 'Food', 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=400&fit=crop', 4.5, 200),
+('Amul Butter 500g', 'Fresh salted butter from Amul', 299.00, 'Food', 'https://images.unsplash.com/photo-1589881133595-7c2e6f6f6c4d?w=400&h=400&fit=crop', 4.6, 75),
+('MTR Ready to Eat Meals', 'Pack of 6 assorted ready-to-eat meals', 1199.00, 'Food', 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=400&fit=crop', 4.2, 90),
+('Philips Air Fryer', 'Healthy cooking with 90% less oil', 8999.00, 'Home', 'https://images.unsplash.com/photo-1585515656973-5b0e40c4d2b6?w=400&h=400&fit=crop', 4.5, 12),
+('Prestige Pressure Cooker', '5-liter stainless steel pressure cooker', 2499.00, 'Home', 'https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=400&h=400&fit=crop', 4.3, 30),
+('Bajaj Mixer Grinder', '750W mixer grinder with 3 jars', 3299.00, 'Home', 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop', 4.2, 25),
+('Croma Smart TV 43"', '4K Ultra HD Smart LED TV', 32999.00, 'Electronics', 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop', 4.4, 8);

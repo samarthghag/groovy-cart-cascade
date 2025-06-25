@@ -36,6 +36,15 @@ export const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
     ));
   };
 
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(price);
+  };
+
   return (
     <Card 
       ref={cardRef}
@@ -69,7 +78,7 @@ export const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
         </div>
         <div className="flex items-center justify-between">
           <span className="text-2xl font-bold text-blue-600">
-            ${product.price.toFixed(2)}
+            {formatPrice(product.price)}
           </span>
           <Badge variant={product.stock > 0 ? "secondary" : "destructive"}>
             {product.stock > 0 ? `${product.stock} in stock` : "Out of stock"}
